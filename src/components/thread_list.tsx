@@ -1,40 +1,32 @@
 import React from 'react';
-import { View, Text } from '@tarojs/components';
+import { View } from '@tarojs/components';
 import Thread from './thread';
-import { Loading } from './loading';
+import Loading from './loading';
 import { IMember } from '../interfaces/member';
 import { INode } from '../interfaces/node';
 
 import './thread.css';
 
 interface IProps {
-  threads: IThread[],
-  loading: boolean,
+  threads: IThread[];
+  loading: boolean;
 }
 
 interface IThread {
-  title: string,
-  member: IMember,
-  node: INode,
-  last_modified: number,
-  id: number,
-  replies: number,
-  key?: number,
+  title: string;
+  member: IMember;
+  node: INode;
+  last_modified: number;
+  id: number;
+  replies: number;
+  key?: number;
 }
 
-class ThreadList extends React.Component<IProps, {}> {
-  static defaultProps = {
-    threads: [],
-    loading: true,
-  }
-
-  render() {
-    const { loading, threads } = this.props;
+function ThreadList(props: IProps) {
+  const { loading, threads } = props;
 
     if (loading) {
-      return (
-        <Loading />
-      )
+      return <Loading />;
     }
 
     const element = threads.map((thread, index) => {
@@ -48,16 +40,15 @@ class ThreadList extends React.Component<IProps, {}> {
           tid={thread.id}
           member={thread.member}
         />
-      )
-    })
+      );
+    });
 
-    return (
-      <View className="thread-list">
-        {element}
-      </View>
-    )
-  }
-
+    return <View className="thread-list">{element}</View>;
 }
 
-export { ThreadList }
+ThreadList.defaultProps = {
+  threads: [],
+  loading: true,
+};
+
+export default ThreadList;

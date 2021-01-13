@@ -1,25 +1,25 @@
-import timeago from 'timeago.js'
+import timeago from 'timeago.js';
 
-import { IThread } from '../interfaces/thread'
+import { IThread } from '../interfaces/thread';
 
-import { eventCenter } from '@tarojs/taro'
+import { eventCenter } from '@tarojs/taro';
 
 // tslint:disable-next-line
-export const Thread_DETAIL_NAVIGATE = 'thread_detail_navigate'
+export const Thread_DETAIL_NAVIGATE = 'thread_detail_navigate';
 
 export interface IThreadProps extends IThread {
-  tid: string
+  tid: string;
 }
 
 eventCenter.on(Thread_DETAIL_NAVIGATE, (thread: IThreadProps) => {
-  GlobalState.thread = thread
-})
+  GlobalState.thread = thread;
+});
 
 export const GlobalState = {
-  thread: {} as IThreadProps
-}
+  thread: {} as IThreadProps,
+};
 
-export const timeagoInst = timeago()
+export const timeagoInst = timeago();
 
 // 数字/英文与中文之间需要加空格
 const betterChineseDict = (_, index) => {
@@ -37,8 +37,8 @@ const betterChineseDict = (_, index) => {
     ['1 月前', '1 月后'],
     ['%s 月前', '%s 月后'],
     ['1 年前', '1 年后'],
-    ['%s 年前', '%s 年后']
-  ][index]
-}
+    ['%s 年前', '%s 年后'],
+  ][index];
+};
 
-timeago.register('zh', betterChineseDict)
+timeago.register('zh', betterChineseDict);

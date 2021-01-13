@@ -1,3 +1,3 @@
 export default {
-  navigationBarTitleText: 'node_detail'
-}
+  navigationBarTitleText: "node_detail",
+};

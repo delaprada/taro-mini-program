@@ -1,3 +1,3 @@
 export default {
-  navigationBarTitleText: '话题'
-}
+  navigationBarTitleText: '话题',
+};

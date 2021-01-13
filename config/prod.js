@@ -1,14 +1,13 @@
 module.exports = {
   env: {
-    NODE_ENV: '"production"'
+    NODE_ENV: '"production"',
   },
-  defineConstants: {
-  },
+  defineConstants: {},
   mini: {
     // 预渲染
     prerender: {
       include: ['pages/nodes/nodes'],
-    }
+    },
   },
   h5: {
     /**
@@ -19,5 +18,5 @@ module.exports = {
      *     .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin, [])
      * }
      */
-  }
+  },
 }
